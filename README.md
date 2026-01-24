@@ -145,15 +145,16 @@ Navegador web moderno (Chrome, Firefox, Edge)
 pip install pandas plotly numpy
 ```
 
+
 ### Paso 2: Generar Visualizaciones
 ```bash
 python analisis_terremotos.py
 ```
 
-Este script:
-- Carga y limpia el dataset
-- Genera 7 archivos HTML con visualizaciones interactivas
-- Muestra estadísticas del análisis en consola
+Al ejecutar este script:
+- Se carga y limpia el dataset automáticamente
+- Se generan los 7 archivos HTML de visualizaciones interactivas en la carpeta del proyecto
+- Se muestran estadísticas del análisis directamente en la consola
 
 ### Paso 3: Abrir la Página Web
 Abre el archivo `index.html` en tu navegador web.

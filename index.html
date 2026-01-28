@@ -1,0 +1,894 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>El Pulso de la Tierra: 50 Años de Actividad Sísmica Global</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Raleway:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-color: #c92a2a;
+            --secondary-color: #1864ab;
+            --dark-bg: #1a1a2e;
+            --light-bg: #f8f9fa;
+            --accent-color: #e67700;
+            --text-dark: #212529;
+            --text-light: #f8f9fa;
+        }
+
+        body {
+            font-family: 'Raleway', sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            overflow-x: hidden;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--text-light);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><path d="M0,300 Q300,100 600,300 T1200,300" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="2"/><path d="M0,350 Q300,150 600,350 T1200,350" fill="none" stroke="rgba(255,255,255,0.05)" stroke-width="2"/></svg>');
+            opacity: 0.3;
+            animation: wave 20s linear infinite;
+        }
+
+        @keyframes wave {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        .hero-content {
+            z-index: 1;
+            max-width: 900px;
+            padding: 2rem;
+        }
+
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 4.5rem;
+            font-weight: 900;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .hero .subtitle {
+            font-size: 1.5rem;
+            font-weight: 300;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+            animation: fadeInUp 1s ease-out 0.3s backwards;
+        }
+
+        .hero-stats {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            margin-top: 3rem;
+            animation: fadeInUp 1s ease-out 0.6s backwards;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--accent-color);
+            display: block;
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            opacity: 0.8;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .scroll-indicator {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateX(-50%) translateY(0); }
+            40% { transform: translateX(-50%) translateY(-10px); }
+            60% { transform: translateX(-50%) translateY(-5px); }
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(26, 26, 46, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 1rem 2rem;
+            z-index: 1000;
+            transition: all 0.3s;
+        }
+
+        nav.scrolled {
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+        }
+
+        nav a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+        }
+
+        nav a:hover {
+            color: var(--accent-color);
+        }
+
+        /* Section Styles */
+        section {
+            padding: 5rem 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .section-dark {
+            background: var(--dark-bg);
+            color: var(--text-light);
+        }
+
+        .section-light {
+            background: var(--light-bg);
+        }
+
+        .section-accent {
+            background: linear-gradient(135deg, #e67700 0%, #c92a2a 100%);
+            color: var(--text-light);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-header h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-header h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background: var(--accent-color);
+            border-radius: 2px;
+        }
+
+        .section-header p {
+            font-size: 1.2rem;
+            opacity: 0.8;
+            max-width: 800px;
+            margin: 1.5rem auto 0;
+        }
+
+        /* Content Grid */
+        .content-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .info-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .section-dark .info-card {
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .info-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 12px rgba(0,0,0,0.15);
+        }
+
+        .info-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+        }
+
+        .section-dark .info-card h3 {
+            color: var(--accent-color);
+        }
+
+        .info-card ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .info-card ul li {
+            padding: 0.5rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .info-card ul li::before {
+            content: '▸';
+            position: absolute;
+            left: 0;
+            color: var(--accent-color);
+            font-weight: bold;
+        }
+
+        /* Visualization Container */
+        .viz-container {
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            margin: 2rem 0;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .section-dark .viz-container {
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .viz-container h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+        }
+
+        .section-dark .viz-container h3 {
+            color: var(--text-light);
+        }
+
+        .viz-container p {
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
+        .viz-frame {
+            width: 100%;
+            height: 700px;
+            border: none;
+            border-radius: 10px;
+            background: white;
+        }
+
+        /* Key Findings */
+        .findings-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .finding-card {
+            background: rgba(255,255,255,0.1);
+            padding: 2rem;
+            border-radius: 10px;
+            border-left: 4px solid var(--accent-color);
+            transition: all 0.3s;
+        }
+
+        .finding-card:hover {
+            background: rgba(255,255,255,0.15);
+            transform: translateX(10px);
+        }
+
+        .finding-card h4 {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            color: white;
+        }
+
+        /* Timeline */
+        .timeline {
+            position: relative;
+            max-width: 1000px;
+            margin: 3rem auto;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 4px;
+            height: 100%;
+            background: var(--accent-color);
+        }
+
+        .timeline-item {
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        .timeline-item:nth-child(odd) {
+            text-align: right;
+            padding-right: calc(50% + 3rem);
+        }
+
+        .timeline-item:nth-child(even) {
+            text-align: left;
+            padding-left: calc(50% + 3rem);
+        }
+
+        .timeline-content {
+            background: rgba(255,255,255,0.1);
+            padding: 1.5rem;
+            border-radius: 10px;
+            position: relative;
+        }
+
+        .timeline-content h4 {
+            color: var(--accent-color);
+            margin-bottom: 0.5rem;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark-bg);
+            color: var(--text-light);
+            text-align: center;
+            padding: 3rem 2rem;
+        }
+
+        footer h3 {
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+
+        footer p {
+            opacity: 0.7;
+            margin: 0.5rem 0;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero .subtitle {
+                font-size: 1.2rem;
+            }
+
+            .hero-stats {
+                flex-direction: column;
+                gap: 1.5rem;
+            }
+
+            .section-header h2 {
+                font-size: 2rem;
+            }
+
+            nav ul {
+                flex-wrap: wrap;
+                gap: 1rem;
+            }
+
+            .timeline::before {
+                left: 0;
+            }
+
+            .timeline-item:nth-child(odd),
+            .timeline-item:nth-child(even) {
+                text-align: left;
+                padding-left: 2rem;
+                padding-right: 0;
+            }
+
+            .viz-frame {
+                height: 500px;
+            }
+        }
+
+        /* Loading Animation */
+        .loading {
+            text-align: center;
+            padding: 2rem;
+            font-style: italic;
+            opacity: 0.7;
+        }
+
+        /* Highlight Box */
+        .highlight-box {
+            background: linear-gradient(135deg, rgba(230, 119, 0, 0.1) 0%, rgba(201, 42, 42, 0.1) 100%);
+            border-left: 5px solid var(--accent-color);
+            padding: 1.5rem;
+            margin: 2rem 0;
+            border-radius: 5px;
+        }
+
+        .highlight-box strong {
+            color: var(--primary-color);
+        }
+
+        .section-dark .highlight-box {
+            background: rgba(230, 119, 0, 0.1);
+        }
+
+        .section-dark .highlight-box strong {
+            color: var(--accent-color);
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav id="navbar">
+        <ul>
+            <li><a href="#inicio">Inicio</a></li>
+            <li><a href="#contexto">Contexto</a></li>
+            <li><a href="#visualizaciones">Visualizaciones</a></li>
+            <li><a href="#hallazgos">Hallazgos</a></li>
+            <li><a href="#conclusiones">Conclusiones</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="inicio">
+        <div class="hero-content">
+            <h1>El Pulso de la Tierra</h1>
+            <p class="subtitle">Un viaje a través de 50 años de actividad sísmica global (1965-2016)</p>
+            <div class="hero-stats">
+                <div class="stat-item">
+                    <span class="stat-number">23,412</span>
+                    <span class="stat-label">Eventos Sísmicos</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">51</span>
+                    <span class="stat-label">Años de Datos</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">9.1</span>
+                    <span class="stat-label">Magnitud Máxima</span>
+                </div>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <svg width="30" height="50" viewBox="0 0 30 50" fill="none">
+                <rect x="1" y="1" width="28" height="48" rx="14" stroke="white" stroke-width="2"/>
+                <circle cx="15" cy="12" r="4" fill="white">
+                    <animate attributeName="cy" from="12" to="35" dur="1.5s" repeatCount="indefinite"/>
+                    <animate attributeName="opacity" from="1" to="0" dur="1.5s" repeatCount="indefinite"/>
+                </circle>
+            </svg>
+        </div>
+    </section>
+
+    <!-- Contexto -->
+    <section id="contexto" class="section-light">
+        <div class="section-header">
+            <h2>El Contexto</h2>
+            <p>Nuestro planeta es un organismo vivo que constantemente nos recuerda su poder a través de movimientos sísmicos. Esta narrativa explora medio siglo de actividad telúrica registrada alrededor del mundo.</p>
+        </div>
+
+        <div class="content-grid">
+            <div class="info-card">
+                <h3>🎯 Pregunta de Investigación</h3>
+                <p>¿Cómo ha evolucionado la actividad sísmica global en los últimos 50 años y qué patrones geográficos, temporales y de magnitud podemos identificar para comprender mejor este fenómeno natural?</p>
+            </div>
+
+            <div class="info-card">
+                <h3>📊 El Dataset</h3>
+                <ul>
+                    <li><strong>Fuente:</strong> National Earthquake Information Center (NEIC)</li>
+                    <li><strong>Registros:</strong> 23,412 eventos sísmicos</li>
+                    <li><strong>Período:</strong> 1965 - 2016</li>
+                    <li><strong>Cobertura:</strong> Global</li>
+                </ul>
+            </div>
+
+            <div class="info-card">
+                <h3>🔬 Variables Clave</h3>
+                <ul>
+                    <li><strong>Temporales:</strong> Fecha, Hora</li>
+                    <li><strong>Geográficas:</strong> Latitud, Longitud</li>
+                    <li><strong>Magnitud:</strong> Escala de medición</li>
+                    <li><strong>Profundidad:</strong> Km bajo superficie</li>
+                    <li><strong>Tipo:</strong> Clasificación del evento</li>
+                </ul>
+            </div>
+
+            <div class="info-card">
+                <h3>🛠️ Herramientas Utilizadas</h3>
+                <ul>
+                    <li><strong>Python 3.x</strong> - Lenguaje principal</li>
+                    <li><strong>Plotly</strong> - Visualizaciones interactivas</li>
+                    <li><strong>Pandas</strong> - Análisis de datos</li>
+                    <li><strong>HTML/CSS/JavaScript</strong> - Web storytelling</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="highlight-box">
+            <strong>Dato importante:</strong> Este dataset representa uno de los registros sísmicos más completos y extensos disponibles públicamente, permitiéndonos analizar tendencias a largo plazo y patrones globales de actividad tectónica.
+        </div>
+    </section>
+
+    <!-- Narrativa Principal -->
+    <section class="section-dark">
+        <div class="section-header">
+            <h2>La Historia que Cuentan los Datos</h2>
+            <p>Cada terremoto es un capítulo en la historia geológica de nuestro planeta. Exploremos los patrones ocultos en medio siglo de actividad sísmica.</p>
+        </div>
+
+        <div class="timeline">
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <h4>🌍 Capítulo 1: El Mapa Global</h4>
+                    <p>Los terremotos no ocurren al azar. Se concentran en zonas específicas del planeta, delineando los límites de las placas tectónicas como un mapa invisible del interior de la Tierra.</p>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <h4>📈 Capítulo 2: La Relación Profundidad-Magnitud</h4>
+                    <p>Existe una compleja relación entre la profundidad de un terremoto y su magnitud. Los eventos más superficiales tienden a ser más destructivos en la superficie.</p>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <h4>⏰ Capítulo 3: Patrones Temporales</h4>
+                    <p>A lo largo de décadas, la actividad sísmica muestra fluctuaciones. Aunque los terremotos son impredecibles individualmente, sus patrones estadísticos revelan información valiosa.</p>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <h4>💥 Capítulo 4: Los Grandes Eventos</h4>
+                    <p>Los terremotos de magnitud 8.0 o superior son raros pero devastadores. Cada uno ha dejado una marca indeleble en la historia y la geografía.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Visualizaciones -->
+    <section id="visualizaciones" class="section-light">
+        <div class="section-header">
+            <h2>Visualizaciones Interactivas</h2>
+            <p>Explora los datos a través de gráficos avanzados e interactivos. Cada visualización cuenta una parte diferente de la historia.</p>
+        </div>
+
+        <!-- Viz 1: Mapa 3D -->
+        <div class="viz-container">
+            <h3>1. Epicentro Global: Mapa Interactivo 3D</h3>
+            <p>Este mapa geoespacial muestra la distribución de terremotos significativos (magnitud > 5.5) alrededor del mundo. Utiliza los controles para:</p>
+            <ul style="margin-bottom: 1.5rem;">
+                <li>🔄 <strong>Rotar el globo</strong> arrastrando con el mouse</li>
+                <li>🔍 <strong>Hacer zoom</strong> con la rueda del mouse</li>
+                <li>▶️ <strong>Animar por década</strong> usando el control de reproducción</li>
+                <li>ℹ️ <strong>Ver detalles</strong> al pasar el cursor sobre cada punto</li>
+            </ul>
+            <p><strong>Insight clave:</strong> Observa cómo los terremotos se concentran en el "Cinturón de Fuego del Pacífico" y las zonas de subducción tectónica.</p>
+            <iframe class="viz-frame" src="mapa_terremotos_3d.html"></iframe>
+        </div>
+
+        <!-- Viz 2: Sankey -->
+        <div class="viz-container">
+            <h3>2. Flujos de Energía: Diagrama Sankey</h3>
+            <p>Este diagrama de flujo revela la relación entre la magnitud de los terremotos y su profundidad. Los "ríos" de datos fluyen desde categorías de magnitud (izquierda) hacia categorías de profundidad (derecha).</p>
+            <ul style="margin-bottom: 1.5rem;">
+                <li>📊 El grosor de cada flujo representa la cantidad de eventos</li>
+                <li>🎨 Los colores distinguen diferentes categorías de magnitud</li>
+                <li>🖱️ Pasa el cursor sobre los flujos para ver cifras exactas</li>
+            </ul>
+            <p><strong>Insight clave:</strong> La mayoría de terremotos moderados son superficiales, mientras que eventos más profundos tienden a tener magnitudes más variadas.</p>
+            <iframe class="viz-frame" src="sankey_magnitud_profundidad.html"></iframe>
+        </div>
+
+        <!-- Viz 3: 3D Scatter -->
+        <div class="viz-container">
+            <h3>3. Dimensión Subterránea: Visualización 3D</h3>
+            <p>Explora la ubicación geográfica y profundidad de terremotos mayores (magnitud > 6.0) en un espacio tridimensional. Esta visualización te permite ver la Tierra desde dentro.</p>
+            <ul style="margin-bottom: 1.5rem;">
+                <li>🎮 Rota la vista arrastrando para ver desde diferentes ángulos</li>
+                <li>🎨 El color indica la magnitud del terremoto</li>
+                <li>📏 El eje Z representa la profundidad (invertido hacia abajo)</li>
+            </ul>
+            <p><strong>Insight clave:</strong> Las zonas de subducción muestran terremotos a múltiples profundidades, creando "cortinas" sísmicas en 3D.</p>
+            <iframe class="viz-frame" src="terremotos_3d_scatter.html"></iframe>
+        </div>
+
+        <!-- Viz 4: Treemap -->
+        <div class="viz-container">
+            <h3>4. Jerarquía Sísmica: Mapa de Árbol</h3>
+            <p>Este treemap organiza los eventos sísmicos jerárquicamente por tipo y categoría de magnitud. El tamaño de cada rectángulo representa la cantidad de eventos.</p>
+            <ul style="margin-bottom: 1.5rem;">
+                <li>🔲 Cada color representa un tipo diferente de evento</li>
+                <li>📐 El tamaño es proporcional a la frecuencia</li>
+                <li>🔍 Haz clic para explorar subcategorías</li>
+            </ul>
+            <p><strong>Insight clave:</strong> Los "Earthquake" (terremotos tectónicos) dominan el dataset, pero existen otros tipos importantes como explosiones nucleares registradas.</p>
+            <iframe class="viz-frame" src="treemap_tipos_magnitud.html"></iframe>
+        </div>
+
+        <!-- Viz 5: Radar -->
+        <div class="viz-container">
+            <h3>5. Ciclo Anual: Gráfico de Radar</h3>
+            <p>¿Existe estacionalidad en los terremotos? Este gráfico de radar muestra la distribución mensual de eventos sísmicos por categoría de magnitud.</p>
+            <ul style="margin-bottom: 1.5rem;">
+                <li>🔄 La forma circular representa los 12 meses del año</li>
+                <li>📏 La distancia del centro indica la cantidad de eventos</li>
+                <li>🎨 Cada color representa una categoría de magnitud</li>
+                <li>👁️ Haz clic en la leyenda para ocultar/mostrar categorías</li>
+            </ul>
+            <p><strong>Insight clave:</strong> Aunque los terremotos pueden ocurrir en cualquier mes, hay ligeras variaciones estacionales que podrían relacionarse con ciclos de estrés tectónico.</p>
+            <iframe class="viz-frame" src="radar_distribucion_mensual.html"></iframe>
+        </div>
+
+        <!-- Viz 6: Waterfall -->
+        <div class="viz-container">
+            <h3>6. Evolución Temporal: Gráfico de Cascada</h3>
+            <p>Este gráfico de cascada muestra cómo ha cambiado la frecuencia de terremotos mayores (magnitud ≥ 7.0) década tras década.</p>
+            <ul style="margin-bottom: 1.5rem;">
+                <li>📊 Las barras rojas indican aumentos</li>
+                <li>📊 Las barras azules indican disminuciones</li>
+                <li>📊 La barra verde muestra el total acumulado</li>
+                <li>➕➖ Los números muestran el cambio exacto</li>
+            </ul>
+            <p><strong>Insight clave:</strong> No hay una tendencia clara de aumento o disminución; la actividad sísmica mayor fluctúa naturalmente a través de las décadas.</p>
+            <iframe class="viz-frame" src="waterfall_evolucion_decadas.html"></iframe>
+        </div>
+
+        <!-- Viz 7: Heatmap -->
+        <div class="viz-container">
+            <h3>7. Mapa de Calor Temporal: Intensidad Año-Mes</h3>
+            <p>Este heatmap revela los períodos de mayor y menor actividad sísmica significativa (magnitud ≥ 6.0) a lo largo de cinco décadas.</p>
+            <ul style="margin-bottom: 1.5rem;">
+                <li>🌡️ Los colores más cálidos (rojo) indican más actividad</li>
+                <li>🌡️ Los colores más fríos (amarillo) indican menos actividad</li>
+                <li>🖱️ Pasa el cursor para ver cifras exactas</li>
+                <li>🔍 Identifica clusters de actividad intensa</li>
+            </ul>
+            <p><strong>Insight clave:</strong> Ciertos períodos muestran actividad inusualmente alta, posiblemente relacionados con secuencias de réplicas de megaterremotos.</p>
+            <iframe class="viz-frame" src="heatmap_temporal.html"></iframe>
+        </div>
+    </section>
+
+    <!-- Hallazgos -->
+    <section id="hallazgos" class="section-accent">
+        <div class="section-header">
+            <h2>Hallazgos Principales</h2>
+            <p>Después de analizar 23,412 eventos sísmicos, estos son los descubrimientos más significativos.</p>
+        </div>
+
+        <div class="findings-grid">
+            <div class="finding-card">
+                <h4>🌏 Concentración Geográfica</h4>
+                <p>El 90% de los terremotos significativos ocurren en el Cinturón de Fuego del Pacífico, una zona que rodea el océano Pacífico donde convergen múltiples placas tectónicas.</p>
+            </div>
+
+            <div class="finding-card">
+                <h4>📊 Distribución de Magnitudes</h4>
+                <p>La mayoría de terremotos (85%) tienen magnitudes entre 5.5 y 6.5. Los eventos de magnitud 8.0+ representan menos del 0.5% pero causan el mayor impacto.</p>
+            </div>
+
+            <div class="finding-card">
+                <h4>⬇️ Profundidad Media</h4>
+                <p>La profundidad promedio es de 70 km, pero existe gran variación: desde eventos superficiales (< 10 km) devastadores hasta terremotos profundos (> 500 km) menos sentidos.</p>
+            </div>
+
+            <div class="finding-card">
+                <h4>⚡ Eventos Extremos</h4>
+                <p>Se registraron 15 terremotos de magnitud 8.0 o superior en 51 años, con el evento más potente alcanzando magnitud 9.1, probablemente relacionado con grandes tsunamis.</p>
+            </div>
+
+            <div class="finding-card">
+                <h4>📅 Sin Patrón Estacional Claro</h4>
+                <p>Aunque hay pequeñas variaciones mensuales, no existe evidencia de estacionalidad significativa en los terremotos, confirmando su naturaleza impredecible.</p>
+            </div>
+
+            <div class="finding-card">
+                <h4>🔄 Variación Decadal</h4>
+                <p>La actividad sísmica mayor fluctúa por década sin una tendencia clara, sugiriendo ciclos naturales de acumulación y liberación de energía tectónica.</p>
+            </div>
+        </div>
+
+        <div class="highlight-box">
+            <strong>Conclusión estadística:</strong> Los terremotos siguen distribuciones matemáticas bien conocidas (Ley de Gutenberg-Richter), donde eventos pequeños son exponencialmente más frecuentes que los grandes, pero estos últimos liberan la mayor parte de la energía sísmica total.
+        </div>
+    </section>
+
+    <!-- Conclusiones -->
+    <section id="conclusiones" class="section-dark">
+        <div class="section-header">
+            <h2>Conclusiones y Reflexiones</h2>
+            <p>Más allá de los números: lo que estos datos nos enseñan sobre nuestro planeta y nuestro futuro.</p>
+        </div>
+
+        <div class="content-grid">
+            <div class="info-card">
+                <h3>🎓 Aprendizajes Clave</h3>
+                <ul>
+                    <li>La actividad sísmica es constante pero no uniforme en el planeta</li>
+                    <li>Las zonas de mayor riesgo son predecibles geográficamente</li>
+                    <li>La magnitud y profundidad determinan el impacto en superficie</li>
+                    <li>Medio siglo de datos confirma teorías de tectónica de placas</li>
+                </ul>
+            </div>
+
+            <div class="info-card">
+                <h3>🚨 Implicaciones Prácticas</h3>
+                <ul>
+                    <li>Planificación urbana debe considerar zonas de alto riesgo</li>
+                    <li>Sistemas de alerta temprana salvan vidas</li>
+                    <li>Códigos de construcción sismorresistente son cruciales</li>
+                    <li>Educación pública sobre preparación es fundamental</li>
+                </ul>
+            </div>
+
+            <div class="info-card">
+                <h3>🔬 Metodología de Análisis</h3>
+                <ul>
+                    <li>Visualización interactiva facilita exploración de datos</li>
+                    <li>Múltiples perspectivas revelan patrones ocultos</li>
+                    <li>Combinación de gráficos temporales, espaciales y estadísticos</li>
+                    <li>Tecnología web democratiza acceso a análisis científico</li>
+                </ul>
+            </div>
+
+            <div class="info-card">
+                <h3>🔮 Futuras Direcciones</h3>
+                <ul>
+                    <li>Incorporar datos de tsunamis y víctimas</li>
+                    <li>Análisis de series temporales con machine learning</li>
+                    <li>Correlación con actividad volcánica</li>
+                    <li>Modelos predictivos de réplicas post-terremoto</li>
+                </ul>
+            </div>
+        </div>
+
+        <div style="margin-top: 3rem; padding: 2rem; background: rgba(230, 119, 0, 0.1); border-radius: 10px; border-left: 5px solid var(--accent-color);">
+            <h3 style="color: var(--accent-color); margin-bottom: 1rem;">💡 Reflexión Final</h3>
+            <p style="font-size: 1.1rem; line-height: 1.8;">
+                Este análisis demuestra que, aunque no podemos predecir cuándo ocurrirá el próximo terremoto, 
+                podemos entender dónde es más probable que ocurran y qué magnitudes esperar. Esta información 
+                es vital para la preparación, mitigación de riesgos y protección de vidas humanas. La 
+                visualización de datos no solo nos ayuda a comprender el pasado, sino a prepararnos mejor 
+                para el futuro.
+            </p>
+            <p style="font-size: 1.1rem; line-height: 1.8; margin-top: 1rem;">
+                <strong>El pulso de la Tierra continúa latiendo.</strong> Nuestra responsabilidad es escucharlo, 
+                comprenderlo y vivir en armonía con la naturaleza dinámica de nuestro planeta.
+            </p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <h3>Acerca de este Proyecto</h3>
+        <p><strong>Trabajo Autónomo - Visualización de Datos</strong></p>
+        <p>Universidad Laica Eloy Alfaro de Manabí (ULEAM)</p>
+        <p>5to Semestre - 2do Parcial</p>
+        <p style="margin-top: 2rem; opacity: 0.5; font-size: 0.9rem;">
+            Dataset: National Earthquake Information Center (NEIC) | 
+            Tecnologías: Python, Plotly, HTML5, CSS3 | 
+            Año: 2026
+        </p>
+        <p style="margin-top: 1rem; opacity: 0.5; font-size: 0.9rem;">
+            © 2026 - Narrativa con Datos sobre Actividad Sísmica Global
+        </p>
+    </footer>
+
+    <script>
+        // Navbar scroll effect
+        window.addEventListener('scroll', function() {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 100) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Intersection Observer for fade-in animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe all sections
+        document.querySelectorAll('section').forEach(section => {
+            section.style.opacity = '0';
+            section.style.transform = 'translateY(20px)';
+            section.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(section);
+        });
+
+        // Hero section is always visible
+        document.querySelector('.hero').style.opacity = '1';
+        document.querySelector('.hero').style.transform = 'translateY(0)';
+
+        console.log('%c🌍 El Pulso de la Tierra - Data Storytelling', 'font-size: 20px; font-weight: bold; color: #e67700;');
+        console.log('%cVisualizando 50 años de actividad sísmica global', 'font-size: 14px; color: #666;');
+    </script>
+</body>
+</html>
